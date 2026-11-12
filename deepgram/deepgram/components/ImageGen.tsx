@@ -16,8 +16,6 @@ const ImageGen = () => {
   const [previewSource, setPreviewSource] = useState("")
 
   const generateImage = async () => {
-    console.log(process.env.NEXT_PUBLIC_TOGETHER_API_KEY)
-
     try {
       const response = await fetch("https://api.together.xyz/inference", {
         method: "POST",
