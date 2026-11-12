@@ -18,7 +18,8 @@ export const POST = async (req: NextRequest): Promise<Response> => {
     log("inside /api/image/generate");
     console.log("inside /api/image/generate");
 
-    const { target, source, username } = await req.json();
+    const { target, source, username: rawUsername } = await req.json();
+    const username = String(rawUsername ?? "guest").replace(/[^a-zA-Z0-9_-]/g, "").slice(0, 64) || "guest";
     // console.log("Received base64 image:", target, source);
 
     if (target && source) {

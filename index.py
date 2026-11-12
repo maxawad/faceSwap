@@ -11,7 +11,7 @@ images = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg"]
 
 faceid_embeds = []
 for image in images:
-    image = cv2.imread("person.jpg")
+    image = cv2.imread(image)
     faces = app.get(image)
     faceid_embeds.append(torch.from_numpy(faces[0].normed_embedding).unsqueeze(0).unsqueeze(0))
-  faceid_embeds = torch.cat(faceid_embeds, dim=1)
+faceid_embeds = torch.cat(faceid_embeds, dim=1)
